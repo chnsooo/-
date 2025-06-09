@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>麥當勞菜單</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <h2>🍔 麥當勞 - 菜單</h2>
+
+  <div>
+    <p>🍔 Big Mac - $109</p>
+    <button onclick="addToCart('Big Mac', 109)">加入購物車</button>
+  </div>
+  <div>
+    <p>🍟 薯條（中） - $45</p>
+    <button onclick="addToCart('薯條（中）', 45)">加入購物車</button>
+  </div>
+  <div>
+    <p>🍗 麥克雞塊 6 塊 - $75</p>
+    <button onclick="addToCart('麥克雞塊 6 塊', 75)">加入購物車</button>
+  </div>
+  <div>
+    <p>🥤 可樂（大） - $38</p>
+    <button onclick="addToCart('可樂（大）', 38)">加入購物車</button>
+  </div>
+  <div>
+    <p>🍦 霜淇淋 - $25</p>
+    <button onclick="addToCart('霜淇淋', 25)">加入購物車</button>
+  </div>
+
+  <h3>輸入地址</h3>
+  <input type="text" id="address" placeholder="外送地址" required /><br /><br />
+
+  <button onclick="placeOrder()">確認下單</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

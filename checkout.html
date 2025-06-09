@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>付款</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <h2>💳 付款資訊</h2>
+
+  <form onsubmit="submitPayment(event)">
+    <label for="paymentMethod">選擇付款方式：</label><br>
+    <select id="paymentMethod" onchange="toggleCardFields()">
+      <option value="credit">信用卡付款</option>
+      <option value="pickup">取餐付款（現金）</option>
+    </select><br /><br />
+
+    <div id="cardFields">
+      <label for="cardNumber">信用卡號</label><br />
+      <input type="text" id="cardNumber" placeholder="例如 1234 5678 9012 3456" /><br />
+
+      <label for="expiry">有效日期</label><br />
+      <input type="text" id="expiry" placeholder="MM/YY" /><br />
+
+      <label for="cvc">CVC</label><br />
+      <input type="text" id="cvc" placeholder="後三碼" /><br /><br />
+    </div>
+
+    <button type="submit">付款</button>
+  </form>
+
+  <script src="js/main.js"></script>
+  <script>
+    function toggleCardFields() {
+      const method = document.getElementById("paymentMethod").value;
+      const cardFields = document.getElementById("cardFields");
+      cardFields.style.display = method === "credit" ? "block" : "none";
+    }
+
+    function submitPayment(event) {
+      event.preventDefault();
+      const method = document.getElementById("paymentMethod").value;
+      if (method === "credit") {
+        alert("信用卡付款成功！感謝您的訂購！");
+      } else {
+        alert("訂單成功！請於取餐時付款。");
+      }
+
+      // 清空購物車與地址
+      localStorage.removeItem("cart");
+      localStorage.removeItem("deliveryAddress");
+
+      // 返回首頁
+      window.location.href = "index.html";
+    }
+
+    // 初始化隱藏信用卡欄位或顯示
+    toggleCardFields();
+  </script>
+</body>
+</html>
+
+
